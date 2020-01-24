@@ -163,7 +163,7 @@ class SendinBlueTransport extends Transport
                 if ($header instanceof Swift_Mime_Headers_UnstructuredHeader) {
                     // add tags for profiling and remove them from headers
                     if ($header->getFieldName() == 'X-Tags') {
-                        $smtpEmail->setTags($header->getValue());
+                        $smtpEmail->setTags(unserialize($header->getValue()));
                         
                         continue;
                     }
