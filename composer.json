@@ -1,7 +1,7 @@
 {
-    "name": "webup/laravel-sendinblue",
+    "name": "netdev-julien/laravel-sendinblue",
     "description": "Laravel's mail transport for SendinBlue",
-    "keywords": ["laravel", "laravel5", "lumen", "sendinblue", "stmp", "mailing"],
+    "keywords": ["laravel", "laravel5", "lumen", "sendinblue", "smtp", "mailing"],
     "license": "MIT",
     "authors": [
         {
