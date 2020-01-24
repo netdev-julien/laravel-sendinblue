@@ -161,6 +161,13 @@ class SendinBlueTransport extends Transport
 
             foreach ($message->getHeaders()->getAll() as $header) {
                 if ($header instanceof Swift_Mime_Headers_UnstructuredHeader) {
+                    // add tags for profiling and remove them from headers
+                    if ($header->getFieldName() == 'X-Tags') {
+                        $smtpEmail->setTags(unserialize($header->getValue()));
+                        
+                        continue;
+                    }
+                    
                     // remove content type because it creates conflict with content type sets by sendinblue api
                     if ($header->getFieldName() != 'Content-Type') {
                         $headers[$header->getFieldName()] = $header->getValue();
