@@ -43,7 +43,11 @@ class SendinBlueTransport extends Transport
     {
         $this->beforeSendPerformed($message);
 
-        $this->api->sendTransacEmail($this->buildData($message));
+		$response = $this->api->sendTransacEmail($this->buildData($message));
+		
+		$message->getHeaders()->addTextHeader(
+            'X-Sendinblue-Message-ID', (json_decode($response))->messageId
+        );
 
         return 0;
     }
