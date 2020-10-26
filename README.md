@@ -12,7 +12,7 @@ composer require webup/laravel-sendinblue
 
 **Compatibility**
 
-| Version       | Laravel       | Sendiblue Api |
+| Version       | Laravel       | Sendinblue Api |
 | ------------- | ------------- | ------------- |
 | 3.*           | 7.0 and above | v3            |
 | 2.*           | 5.5 - 6.*     | v3            |
@@ -20,17 +20,18 @@ composer require webup/laravel-sendinblue
 | 1.0.*         | 5.0 - 5.4     | v2            |
 
 
-## Provider
+## Configuration
 
-> `config/app.php`
+> `config/mail.php`
 
 ```php
-    'providers' => [
-        Webup\LaravelSendinBlue\SendinBlueServiceProvider::class,
-    ],
+    'mailers' => [
+        // ...
+        'sendinblue' => [
+            'transport' => 'sendinblue',
+        ],
+    ]
 ```
-
-## Configuration
 
 > `config/services.php`
 
@@ -45,6 +46,6 @@ composer require webup/laravel-sendinblue
 > `.env`
 
 ```
-MAIL_DRIVER=sendinblue
+MAIL_MAILER=sendinblue
 SENDINBLUE_KEY=your-access-key
 ```
